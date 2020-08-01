@@ -74,7 +74,6 @@ public class HandDetector : MonoBehaviour
         {
             return;
         }
-
         string[] temp = data.Split(',');
         
         if(temp.Length != 2)

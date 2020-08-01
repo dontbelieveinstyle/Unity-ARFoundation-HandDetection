@@ -14,7 +14,7 @@ import Vision
     @objc static let shared = HandDetector()
     @objc public var outputBuffer : CVPixelBuffer?
     
-    private let visionQueue = DispatchQueue(label: "com.chenjd.HandDetector")
+    private let visionQueue = DispatchQueue(label: "com.iostation.HandDetector")
     
     private var callbackTarget: String = "HandDetector"
     
@@ -23,7 +23,8 @@ import Vision
     private lazy var predictionRequest: VNCoreMLRequest = {
         // Load the ML model through its generated class and create a Vision request for it.
         do {
-            let model = try VNCoreMLModel(for: HandModel().model)
+            let config = MLModelConfiguration()
+            let model = try VNCoreMLModel(for: HandModel(configuration: config).model)
             let request = VNCoreMLRequest(model: model, completionHandler: detectionCompleteHandler)
             
             request.imageCropAndScaleOption = VNImageCropAndScaleOption.scaleFill

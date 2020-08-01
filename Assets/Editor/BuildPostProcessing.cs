@@ -25,12 +25,13 @@ public static class BuildPostProcessing
         
         var proj = new PBXProject();
         proj.ReadFromFile(projPath);
-        var targetGUID = proj.TargetGuidByName("Unity-iPhone");
+        var targetGUID = proj.GetUnityFrameworkTargetGuid();
 
         //set xcode proj properties
-        proj.AddBuildProperty(targetGUID, "SWIFT_VERSION", "4.0");
-        proj.SetBuildProperty(targetGUID, "SWIFT_OBJC_BRIDGING_HEADER", "Libraries/Plugins/iOS/HandDetector/Native/HandDetector.h");
-        proj.SetBuildProperty(targetGUID, "SWIFT_OBJC_INTERFACE_HEADER_NAME","HandDetector-Swift.h");
+        proj.AddBuildProperty(targetGUID, "SWIFT_VERSION", "5.0");
+//        proj.SetBuildProperty(targetGUID, "SWIFT_OBJC_BRIDGING_HEADER", "Libraries/Plugins/iOS/HandDetector/Native/HandDetector.h");
+//        proj.SetBuildProperty(targetGUID, "SWIFT_OBJC_INTERFACE_HEADER_NAME","HandDetector-Swift.h");
+        proj.SetBuildProperty(targetGUID, "SWIFT_OBJC_INTERFACE_HEADER_NAME", "Libraries/Plugins/iOS/HandDetector/Native/HandDetector.h");
         proj.SetBuildProperty(targetGUID, "COREML_CODEGEN_LANGUAGE", "Swift");
         
         

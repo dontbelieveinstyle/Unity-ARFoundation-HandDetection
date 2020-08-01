@@ -14,7 +14,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "UnityAppController.h"
 #include "Unity/IUnityInterface.h"
-
+#include "HandDetector.h"
 
 extern "C" void UNITY_INTERFACE_EXPORT UNITY_INTERFACE_API UnityPluginLoad(IUnityInterfaces* unityInterfaces);
 extern "C" void UNITY_INTERFACE_EXPORT UNITY_INTERFACE_API UnityPluginUnload();
